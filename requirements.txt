@@ -1,0 +1,11 @@
+# AI Agent 面试知识库 — RAG 问答系统
+streamlit>=1.30.0
+langchain-chroma>=0.1.0
+langchain-community>=0.2.0
+langchain-huggingface>=0.1.0
+langchain-text-splitters>=0.2.0
+sentence-transformers>=3.0.0
+openai>=1.0.0
+python-dotenv>=1.0.0
+python-docx>=1.0.0
+pypdf>=5.0.0
