@@ -82,6 +82,7 @@ def build_dual_prompt(kb_context: str, web_context: str, question: str) -> list[
 
 
 def main() -> None:
+    load_dotenv()
     parser = argparse.ArgumentParser(description="大学生选课指南问答")
     parser.add_argument("question", nargs="*", help="问题")
     parser.add_argument("--no-web", action="store_true", help="禁用联网搜索")
@@ -191,31 +192,6 @@ def main() -> None:
             print(f"       {snippet}...")
             if href:
                 print(f"       🔗 {href}")
-
-
-if __name__ == "__main__":
-    main()
-
-    # 4. 输出结果
-    print(f"\n{'='*50}")
-    print("📝 回答:")
-    print(f"{'='*50}")
-    print(answer)
-
-    print(f"\n{'='*50}")
-    print("📎 参考来源:")
-    print(f"{'='*50}")
-    seen_sources = set()
-    for i, doc in enumerate(docs, 1):
-        source = doc.metadata.get("source", "未知来源")
-        page = doc.metadata.get("page", "")
-        page_info = f" p.{page}" if page != "" else ""
-        preview = doc.page_content.replace("\n", " ")[:100]
-        source_key = f"{source}{page_info}"
-        if source_key not in seen_sources:
-            seen_sources.add(source_key)
-            print(f"\n  [{i}] {source}{page_info}")
-            print(f"      {preview}...")
 
 
 if __name__ == "__main__":
