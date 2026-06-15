@@ -6,7 +6,22 @@
 """
 
 import os
+import sys
 from pathlib import Path
+
+# ── 环境配置 ──────────────────────────────────────────
+# 使用本地缓存的 HuggingFace 模型（无需联网下载）
+os.environ.setdefault("HF_HUB_OFFLINE", "1")
+os.environ.setdefault("TRANSFORMERS_OFFLINE", "1")
+
+# macOS 上修复 SSL 证书问题
+if sys.platform == "darwin":
+    try:
+        import certifi
+        os.environ.setdefault("SSL_CERT_FILE", certifi.where())
+        os.environ.setdefault("REQUESTS_CA_BUNDLE", certifi.where())
+    except ImportError:
+        pass
 
 import streamlit as st
 from dotenv import load_dotenv
