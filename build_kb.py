@@ -63,7 +63,7 @@ def main() -> None:
     rebuild = "--rebuild" in sys.argv
 
     print("=" * 50)
-    print("📚 AI Agent 面试知识库 — 构建工具")
+    print("📚 大学选课助手 — 构建工具")
     print("=" * 50)
 
     # 重建模式：清空旧库

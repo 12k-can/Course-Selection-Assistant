@@ -9,9 +9,9 @@ app_file: app.py
 pinned: false
 ---
 
-# 📚 AI Agent 面试知识库 — RAG 问答系统
+# 📚 大学选课助手 — RAG 问答系统
 
-基于 **LangChain + ChromaDB + sentence-transformers + DeepSeek** 的本地知识库智能问答系统。支持 PDF/DOCX/TXT 多种文档格式，通过 RAG（检索增强生成）技术实现精准的文档问答。
+基于 **LangChain + ChromaDB + sentence-transformers + DeepSeek** 的智能选课问答系统。支持 PDF/DOCX/TXT 多种文档格式，通过 RAG（检索增强生成）技术实现精准的选课信息查询。
 
 ## ✨ 特性
 
@@ -59,14 +59,14 @@ pinned: false
 ## 📁 项目结构
 
 ```
-ai-agent-interview/
+course-selection-assistant/
 ├── app.py              # Streamlit 主界面
-├── build_kb.py         # 知识库构建工具（PDF/DOCX/TXT → Chroma）
+├── build_kb.py         # 知识库构建工具（TXT → Chroma）
 ├── ask_kb.py           # 命令行问答工具
 ├── test_api.py         # API 连通性测试
 ├── test_embedding.py   # Embedding 模型测试
 ├── docs/               # 知识库源文档
-│   └── test.pdf        # 示例文档
+│   └── 选课指南.txt    # 选课指南文档
 ├── chroma_db/          # 向量数据库（自动生成）
 ├── .env                # API Key 配置
 ├── requirements.txt    # 依赖清单
@@ -116,7 +116,7 @@ python ask_kb.py "你的问题"
 
 ### 分块策略
 
-- **chunk_size=400**：每块约 400 字符，适合面试问答场景
+- **chunk_size=400**：每块约 400 字符，适合选课问答场景
 - **chunk_overlap=80**：20% 重叠，保持上下文连贯
 - **中文标点分隔**：按 `。；，` 等标点切分，避免语义断裂
 
@@ -135,27 +135,21 @@ python ask_kb.py "你的问题"
 ## 📊 效果展示
 
 ```
-> 介绍一下这个人的技术栈
+> 通识选修课有哪些类别？
 
-根据提供的资料，该候选人的技术栈可以归纳如下：
+根据知识库资料，通识选修课主要分为以下几类：
 
-### AI Agent 方向
-- 熟悉主流 AI Agent 框架部署（Claude Code、Codex、OpenClaw）
-- 国产大模型 API 接入（DeepSeek、混元）
-- Token 中转站搭建（多模型鉴权、流量分发）
-- 研究 DeerFlow 2.0 等开源编排框架
+📚 **人文社科类**：包括文学、历史、哲学、社会学等方向的课程
+📚 **自然科学类**：包括数学、物理、化学、生物等基础科学课程
+📚 **艺术审美类**：包括音乐、美术、影视鉴赏等艺术类课程
+📚 **创新创业类**：包括职业规划、创业基础等实践类课程
 
-### 前端开发
-- HTML5 / CSS3 / JavaScript (ES6+)
-- Vue.js / React 基础
-- 响应式布局
-
-...（来源：test.pdf）
+具体选课要求可查阅选课指南文档。
 ```
 
 ## 🗺 后续规划
 
-- [x] 多格式文档支持（PDF/DOCX/TXT）
+- [x] 多格式文档支持（TXT）
 - [x] Streamlit Web 界面
 - [x] MMR 检索优化
 - [ ] 🌐 联网搜索扩展（知识库+双路径）

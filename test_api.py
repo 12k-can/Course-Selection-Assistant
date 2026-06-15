@@ -14,7 +14,7 @@ response = client.chat.completions.create(
     messages=[
         {
             "role": "user",
-            "content": "用一句话解释什么是AI Agent"
+            "content": "用一句话解释什么是通识选修课"
         }
     ]
 )

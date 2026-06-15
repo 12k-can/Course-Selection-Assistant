@@ -8,7 +8,7 @@ model = SentenceTransformer(
 
 print("模型加载成功")
 
-vec = model.encode("什么是AI Agent")
+vec = model.encode("什么是通识选修课")
 
 print("向量长度:", len(vec))
 print(vec[:5])

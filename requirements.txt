@@ -1,4 +1,4 @@
-# AI Agent 面试知识库 — RAG 问答系统
+# 大学选课助手 — RAG 问答系统
 streamlit>=1.30.0
 langchain-chroma>=0.1.0
 langchain-community>=0.2.0
